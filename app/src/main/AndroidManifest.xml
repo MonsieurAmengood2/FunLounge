@@ -13,6 +13,13 @@
         android:theme="@style/Theme.FunLounge"
         tools:targetApi="31">
         <activity
+            android:name=".AdicionarJogadores"
+            android:exported="false" />
+        <activity
+            android:name=".MainMenuActivity"
+            android:exported="false"
+            android:label="MainMenu" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
