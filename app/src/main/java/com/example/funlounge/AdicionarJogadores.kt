@@ -1,6 +1,6 @@
 package com.example.funlounge
 
-import android.annotation.SuppressLint
+import com.example.funlounge.MainActivity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -8,11 +8,9 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+
 
 class AdicionarJogadores : AppCompatActivity() {
-    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -27,18 +25,34 @@ class AdicionarJogadores : AppCompatActivity() {
         val comecarJogoBtn: Button = findViewById(R.id.ComecarJogoBtn)
 
 
+
+        //O OnClickListener é configurado para o botão comecarJogoBtn. Isso significa que, quando o utilizador
+        // clicar no botão, o código dentro do bloco de código do setOnClickListener será executado.
         comecarJogoBtn.setOnClickListener {
+
+            //Os valores de texto dos campos de entrada jogador1 e jogador2 são "capturados"
             val getPlayerOneName = jogador1.text.toString()
             val getPlayerTwoName = jogador2.text.toString()
 
+            //Aqui, é feita uma verificação para garantir que ambos os campos (jogador 1 e jogador 2)
+            // foram preenchidos. Se qualquer um dos campos estiver vazio (isEmpty()), um Toast será exibido
+            // com a mensagem "Por favor insira o nome dos Jogadores", alertando o utilizador para preencher os nomes.
             if (getPlayerOneName.isEmpty() || getPlayerTwoName.isEmpty()) {
                 Toast.makeText(this, "Por favor insira o nome dos Jogadores", Toast.LENGTH_SHORT).show()
+
+
+            //Se os dois nomes foram fornecidos, um Intent é criado para iniciar a MainActivity
+            // Os nomes dos jogadores são passados para a MainActivity através de putExtra(), que insere os dados
+            // no Intent. Isso permite que a MainActivity receba os nomes dos jogadores e os utilize.
             } else {
                 val intent = Intent(this, MainActivity::class.java).apply {
                     putExtra("jogador1", getPlayerOneName)
                     putExtra("jogador2", getPlayerTwoName)
                 }
+                //Inicia a MainActivity com os dados dos jogadores.
                 startActivity(intent)
+                //Fechar a tela atual (onde os nomes foram inseridos),  transferindo o controle para a MainActivity
+                finish()
             }
         }
     }

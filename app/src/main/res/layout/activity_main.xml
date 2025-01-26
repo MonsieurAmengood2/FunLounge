@@ -25,6 +25,7 @@
 
 
             <TextView
+                android:maxLines="1"
                 android:id="@+id/jogador1nome"
                 android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
@@ -54,6 +55,7 @@
 
 
             <TextView
+                android:maxLines="1"
                 android:id="@+id/jogador2nome"
                 android:layout_marginTop="20dp"
                 android:layout_width="match_parent"

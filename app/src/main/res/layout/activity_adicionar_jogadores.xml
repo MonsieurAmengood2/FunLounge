@@ -34,6 +34,8 @@
             android:src="@drawable/bola"/>
 
         <EditText
+            android:inputType="text"
+            android:maxLines="1"
             android:id="@+id/jogador1nome"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -61,6 +63,8 @@
             android:src="@drawable/cruz"/>
 
         <EditText
+            android:inputType="text"
+            android:maxLines="1"
             android:id="@+id/jogador2nome"
             android:layout_width="match_parent"
             android:layout_height="50dp"
