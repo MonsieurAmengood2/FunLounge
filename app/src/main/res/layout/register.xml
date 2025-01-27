@@ -16,7 +16,7 @@
         android:textColor="@color/white"/>
 
     <EditText
-        android:id="@+id/fullname"
+        android:id="@+id/username"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:background="@drawable/round_login"
@@ -86,7 +86,7 @@
 
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/signInBtn"
+        android:id="@+id/signUpBtn"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginEnd="20dp"

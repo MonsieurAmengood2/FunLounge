@@ -32,15 +32,7 @@
         android:text="Começar Novamente"
         android:textColor="#FFFFFF"
         />
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/startAgainBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:background="@drawable/greenbutton"
-        android:text="Começar Novamente"
-        android:textColor="#FFFFFF"
-        />
+
 
 </LinearLayout>
 </RelativeLayout>
