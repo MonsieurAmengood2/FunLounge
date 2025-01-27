@@ -1,5 +1,6 @@
 package com.example.funlounge
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -47,7 +48,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var image8: ImageView
     private lateinit var image9: ImageView
 
-
+    //boardLineDrawer é uma variável do tipo BoardLineDrawer
+    //O uso de lateinit significa que ela será inicializada posteriormente, antes de ser utilizada.
+    private lateinit var boardLineDrawer: BoardLineDrawer
 
     // Método onCreate:Chamado quando a tela é criada. Aqui são configurados os elementos da interface e
     // inicializadas as variáveis.
@@ -97,6 +100,8 @@ class MainActivity : AppCompatActivity() {
         combinationsList.add(intArrayOf(0, 4, 8))
         combinationsList.add(intArrayOf(2, 4, 6))
 
+        //o objeto boardLineDrawer é associado ao elemento correspondente no layout XML (R.id.boardLineDrawer)
+        boardLineDrawer = findViewById(R.id.boardLineDrawer)
 
         //Obter os nomes dos jogadores passados do layout "activity_adicionar_jogadores.xml" e exibi-los na
         // interface Main
@@ -191,6 +196,54 @@ class MainActivity : AppCompatActivity() {
             playerOneLayout.setBackgroundResource(R.drawable.box_to_play)
         }
     }
+    //Este método drawWinningLine é responsável por desenhar uma linha visualmente sobre a combinação vencedora
+    // no tabuleiro do jogo
+    private fun drawWinningLine(combination: IntArray) {
+
+        //O array imageViews contém todas as casas do tabuleiro
+        val imageViews = arrayOf(image1, image2, image3, image4, image5, image6, image7, image8, image9)
+
+        imageViews[combination[0]].post {
+
+            //combination[0] e combination[2] representam o início e o fim de uma linha vencedora
+            val startView = imageViews[combination[0]]
+            val endView = imageViews[combination[2]]
+
+            //Cria um array startLocation para armazenar a posição da primeira casa vencedora.
+            //getLocationInWindow(startLocation) preenche o array com as coordenadas (X, Y) da casa na tela.
+            val startLocation = IntArray(2)
+            startView.getLocationInWindow(startLocation)
+
+            //Cria um array endLocation para armazenar a posição da última casa vencedora.
+            //Obtém a posição da casa na tela.
+            val endLocation = IntArray(2)
+            endView.getLocationInWindow(endLocation)
+
+            //Cria um array boardLocation para armazenar a posição do tabuleiro.
+            //Obtém as coordenadas do tabuleiro na tela.
+            val boardLocation = IntArray(2)
+            boardLineDrawer.getLocationInWindow(boardLocation)
+
+            //Calcular a posição relativa dentro do tabuleiro, subtraindo a posição do tabuleiro das posições das
+            // casas
+            //Assim, sabemos que a primeira casa está na posição (150, 200) dentro do tabuleiro.
+            //"+ startView.width / 2" desloca o ponto para o centro da casa
+            val startX = (startLocation[0] - boardLocation[0]) + startView.width / 2 // 250 - 100 = 150
+            val startY = (startLocation[1] - boardLocation[1]) + startView.height / 2 // 400 - 200 = 200
+            val endX = (endLocation[0] - boardLocation[0]) + endView.width / 2
+            val endY = (endLocation[1] - boardLocation[1]) + endView.height / 2
+
+            //O elemento boardLineDrawer, que inicialmente está invisível,
+            // é agora exibido na interface do utilizador.
+            boardLineDrawer.visibility = View.VISIBLE
+
+            //Chamar o método drawWinningLine() da classe BoardLineDrawer,
+            // responsável por desenhar a linha da posição inicial (startX, startY) até a posição final (endX, endY)
+            boardLineDrawer.drawWinningLine(startX.toFloat(), startY.toFloat(), endX.toFloat(), endY.toFloat())
+        }
+    }
+
+
 
     //O método performAction é chamado quando o jogador seleciona uma casa/"box" no tabuleiro.
     // O método atualiza o estado do jogo com base na jogada, altera a interface visual e verifica se
@@ -311,6 +364,7 @@ class MainActivity : AppCompatActivity() {
                 boxPositions[combination[1]] == playerTurn &&
                 boxPositions[combination[2]] == playerTurn)
             {
+                drawWinningLine(combination)
                 response = true
 
             }
@@ -366,6 +420,13 @@ class MainActivity : AppCompatActivity() {
         image7.setImageResource(R.drawable.transparente)
         image8.setImageResource(R.drawable.transparente)
         image9.setImageResource(R.drawable.transparente)
+
+         //O componente boardLineDrawer desapareçe da tela, tornando-se invisível e não ocupando espaço na interface.
+        boardLineDrawer.visibility = View.GONE
+
+        //O método (clearWinningLine) apaga a linha vencedora desenhada anteriormente
+        boardLineDrawer.clearWinningLine()
+
     }
 
 }

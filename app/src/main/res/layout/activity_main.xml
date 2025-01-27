@@ -221,4 +221,12 @@
 
         </LinearLayout>
     </LinearLayout>
+    <!-- View para desenhar a linha vencedora -->
+    <com.example.funlounge.BoardLineDrawer
+        android:id="@+id/boardLineDrawer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
 </RelativeLayout>

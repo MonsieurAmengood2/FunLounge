@@ -27,7 +27,7 @@ class AdicionarJogadores : AppCompatActivity() {
 
 
         //O OnClickListener é configurado para o botão comecarJogoBtn. Isso significa que, quando o utilizador
-        // clicar no botão, o código dentro do bloco de código do setOnClickListener será executado.
+        // clicar no botão, o código dentro dog bloco de código do setOnClickListener será executado.
         comecarJogoBtn.setOnClickListener {
 
             //Os valores de texto dos campos de entrada jogador1 e jogador2 são "capturados"
