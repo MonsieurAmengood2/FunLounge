@@ -3,10 +3,12 @@ package com.example.funlounge
 
 import android.app.Dialog
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.annotation.NonNull
+import androidx.core.content.ContextCompat.startActivity
 
 class WinDialog(@NonNull context: Context, private val message: String, private val mainActivity: MainActivity)
     : Dialog(context) {
@@ -22,6 +24,7 @@ class WinDialog(@NonNull context: Context, private val message: String, private 
         // o jogo) são obtidas com findViewById.
         val messageTxt: TextView = findViewById(R.id.messageTxt)
         val startAgainBtn: Button = findViewById(R.id.startAgainBtn)
+        val retrocederBtn:Button = findViewById(R.id.retrocederBtn)
 
         //A mensagem que foi passada como parâmetro é atribuída à TextView, assim, a mensagem personalizada
         // será exibida no diálogo
@@ -33,6 +36,11 @@ class WinDialog(@NonNull context: Context, private val message: String, private 
         startAgainBtn.setOnClickListener {
             mainActivity.restartMatch();
             dismiss();
+        }
+
+        retrocederBtn.setOnClickListener {
+            val intent = Intent(context, MenuTransicao::class.java)
+            context.startActivity(intent)
         }
     }
 }

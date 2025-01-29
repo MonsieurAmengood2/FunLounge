@@ -36,6 +36,14 @@ android {
 }
 
 dependencies {
+    
+    // A API é definida no código (endpoints, métodos, etc.)
+    //O Retrofit envia a requisição HTTP para a API
+    //A API responde com um JSON
+    //O Gson converte esse JSON automaticamente para um objeto Kotlin
+    implementation(libs.retrofit)
+    implementation(libs.gson)
+
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

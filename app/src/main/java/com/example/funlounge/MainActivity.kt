@@ -228,21 +228,37 @@ class MainActivity : AppCompatActivity() {
             // casas
             //Assim, sabemos que a primeira casa está na posição (150, 200) dentro do tabuleiro.
             //"+ startView.width / 2" desloca o ponto para o centro da casa
-            val startX = (startLocation[0] - boardLocation[0]) + startView.width / 2 // 250 - 100 = 150
-            val startY = (startLocation[1] - boardLocation[1]) + startView.height / 2 // 400 - 200 = 200
-            val endX = (endLocation[0] - boardLocation[0]) + endView.width / 2
-            val endY = (endLocation[1] - boardLocation[1]) + endView.height / 2
+            // Ajuste para garantir que a linha vai até os cantos
+            val startX = startLocation[0] - boardLocation[0]
+            val startY = startLocation[1] - boardLocation[1]
+            val endX = endLocation[0] - boardLocation[0] + endView.width
+            val endY = endLocation[1] - boardLocation[1] + endView.height
 
-            //O elemento boardLineDrawer, que inicialmente está invisível,
-            // é agora exibido na interface do utilizador.
+            // Verificar se a linha é diagonal, vertical ou horizontal
+            val isDiagonalLTR = (combination.contentEquals(intArrayOf(0, 4, 8)))  // Diagonal Esquerda para Direita
+            val isDiagonalRTL = (combination.contentEquals(intArrayOf(2, 4, 6)))  // Diagonal Direita para Esquerda
+            val isVertical = combination[0] % 3 == combination[1] % 3
+            val isHorizontal = combination[0] / 3 == combination[1] / 3
+
+            val offsetX = if (isVertical) startView.width / 2 else 0
+            val offsetY = if (isHorizontal) startView.height / 2 else 0
+
+            // Ajuste específico para diagonais
+            val adjustedStartX = if (isDiagonalLTR) startX else if (isDiagonalRTL) startX + startView.width else startX + offsetX
+            val adjustedStartY = startY + offsetY
+            val adjustedEndX = if (isDiagonalLTR) endX else if (isDiagonalRTL) endX - endView.width else endX - offsetX
+            val adjustedEndY = endY - offsetY
+
+            // Tornar visível e desenhar a linha corrigida
             boardLineDrawer.visibility = View.VISIBLE
-
-            //Chamar o método drawWinningLine() da classe BoardLineDrawer,
-            // responsável por desenhar a linha da posição inicial (startX, startY) até a posição final (endX, endY)
-            boardLineDrawer.drawWinningLine(startX.toFloat(), startY.toFloat(), endX.toFloat(), endY.toFloat())
+            boardLineDrawer.drawWinningLine(
+                adjustedStartX.toFloat(),
+                adjustedStartY.toFloat(),
+                adjustedEndX.toFloat(),
+                adjustedEndY.toFloat()
+            )
         }
     }
-
 
 
     //O método performAction é chamado quando o jogador seleciona uma casa/"box" no tabuleiro.
