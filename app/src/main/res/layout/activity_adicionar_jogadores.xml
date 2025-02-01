@@ -35,7 +35,7 @@
             android:src="@drawable/bola"/>
 
         <EditText
-            android:autofillHints=""
+            android:autofillHints="username1"
             android:inputType="text"
             android:maxLines="1"
             android:id="@+id/jogador1nome"
@@ -66,7 +66,7 @@
             android:src="@drawable/cruz"/>
 
         <EditText
-            android:autofillHints=""
+            android:autofillHints="username2"
             android:inputType="text"
             android:maxLines="1"
             android:id="@+id/jogador2nome"
