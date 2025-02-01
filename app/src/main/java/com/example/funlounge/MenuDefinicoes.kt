@@ -12,7 +12,7 @@ class MenuDefinicoes: AppCompatActivity() {
         setContentView(R.layout.menu_definicoes_utilizador)
 
 
-        val EditarPerfilBtn: TextView = findViewById(R.id.EditarPerfilBtn)
+        val EliminarPerfilBtn: TextView = findViewById(R.id.EliminarPerfilBtn)
         val SairBtn: TextView = findViewById(R.id.SairBtn)
 
 

@@ -1,0 +1,81 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="@drawable/panodefundo">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Escolha o seu nome e símbolo"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="120dp"
+        android:layout_marginBottom="20dp"
+        android:paddingTop="10dp"/>
+
+
+
+        <EditText
+            android:id="@+id/playerNameInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Digite o seu nome"
+            android:background="@drawable/round_login"
+            android:padding="10dp"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#CCCCCC"
+            android:layout_marginTop="0dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Escolha o seu símbolo:"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:layout_gravity="center"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="5dp">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonChooseX"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/cruz"
+                android:scaleType="fitCenter"
+                android:layout_marginEnd="20dp"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonChooseO"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/bola"
+                android:scaleType="fitCenter"/>
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonStartGame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Iniciar Jogo"
+            android:textSize="18sp"
+            android:background="@drawable/greenbutton"
+            android:textColor="#FFFFFF"
+            android:padding="10dp"
+            android:layout_marginTop="15dp"/>
+    </LinearLayout>
+
+

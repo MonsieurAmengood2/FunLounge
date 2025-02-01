@@ -13,22 +13,22 @@
 
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/EliminarPerfilBtn"
+        android:id="@+id/BotBtn"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
-        android:text="Eliminar Perfil"
+        android:text="Jogar Contra o Bot "
         android:layout_marginTop="40dp"
         android:background="@drawable/greenbutton"/>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/SairBtn"
+        android:id="@+id/AmigoBtn"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
-        android:text="Sair"
+        android:text="Jogar Contra um Amigo"
         android:layout_marginTop="40dp"
         android:background="@drawable/greenbutton"/>
 

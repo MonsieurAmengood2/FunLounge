@@ -19,7 +19,7 @@ class MenuTransicao: AppCompatActivity() {
         val DefinBtn: Button = findViewById(R.id.DefinBtn)
 
         JogarBtn.setOnClickListener {
-            val intent = Intent(this, AdicionarJogadores::class.java)
+            val intent = Intent(this, MenuDecisaoJogo::class.java)
             startActivity(intent)
         }
 

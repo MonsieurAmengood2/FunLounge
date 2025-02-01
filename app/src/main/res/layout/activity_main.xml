@@ -36,6 +36,7 @@
                 android:textSize="16sp"
                 android:gravity="center"/>
             <ImageView
+                android:id="@+id/imageJogador1"
                 android:layout_gravity="center"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
@@ -66,6 +67,7 @@
                 android:textSize="16sp"
                 android:gravity="center"/>
             <ImageView
+                android:id="@+id/imageJogador2"
                 android:layout_gravity="center"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
