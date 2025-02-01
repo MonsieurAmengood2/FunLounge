@@ -75,6 +75,13 @@ class Login : AppCompatActivity() {
 
                         //Se o token não for null, significa que o servidor enviou um token válido.
                         if (token != null) {
+
+                            // Salvar o token no SharedPreferences
+                            val sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE)
+                            val editor = sharedPreferences.edit()
+                            editor.putString("token", token) // Armazenar o token
+                            editor.apply() // Salva as mudanças
+
                             //Exibe um Toast ("Login bem-sucedido!") para informar ao utilizador
                             Toast.makeText(this@Login, "Login bem-sucedido!", Toast.LENGTH_SHORT).show()
                             //Cria uma Intent para abrir a próxima tela (MenuTransicao)
