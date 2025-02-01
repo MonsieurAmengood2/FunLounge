@@ -16,11 +16,11 @@
        android:textColor="@color/white"/>
 
     <EditText
-        android:id="@+id/username"
+        android:id="@+id/user"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:background="@drawable/round_login"
-        android:hint="Nome de Utilizador"
+        android:hint="Nome de Utilizador ou Email"
         android:textColorHint="@color/white"
         android:maxLines="1"
         android:inputType="text"

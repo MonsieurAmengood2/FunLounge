@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/panodefundo">
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"/>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/EditarPerfilBtn"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:text="Editar Perfil"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/greenbutton"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/SairBtn"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:text="Sair"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/greenbutton"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"/>
+
+
+
+
+</LinearLayout>

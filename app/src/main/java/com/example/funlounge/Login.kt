@@ -24,7 +24,7 @@ class Login : AppCompatActivity() {
         setContentView(R.layout.login)
 
         //Conectar os elementos do layout (EditText e TextView) ao código Kotlin
-        val username: EditText = findViewById(R.id.username)
+        val loginInput: EditText = findViewById(R.id.user)
         val password: EditText = findViewById(R.id.password)
         val signInBtn: TextView = findViewById(R.id.signInBtn)
 
@@ -35,11 +35,11 @@ class Login : AppCompatActivity() {
             //val username = "   joao123   ".trim()
             //println(username)  // "joao123" (sem espaços)
             //".trim()"->Remove espaços vazios no início e no final da string evitando erros de login causados por espaços extras
-            val usernameText = username.text.toString().trim()
+            val userText = loginInput.text.toString().trim()
             val passwordText = password.text.toString().trim()
 
             //Se o utilizador tentar clicar sem preencher os campos, verá esta mensagem
-            if (usernameText.isEmpty() || passwordText.isEmpty()) {
+            if (userText.isEmpty() || passwordText.isEmpty()) {
                 Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
@@ -48,7 +48,7 @@ class Login : AppCompatActivity() {
             val apiService = RetrofitClient.instance.create(ApiService::class.java)
 
             // requisição "POST /login" para a API Node.js(que está a rodar na backend) usando Retrofit
-            val call = apiService.loginUser(LoginRequest(usernameText, passwordText))
+            val call = apiService.loginUser(LoginRequest(userText, passwordText))
 
             //call.enqueue(...) → Envia a requisição de login para o servidor.
             //Callback<LoginResponse> → Espera uma resposta do tipo LoginResponse (que contém o token).

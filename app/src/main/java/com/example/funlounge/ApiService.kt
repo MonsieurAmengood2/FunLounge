@@ -14,7 +14,7 @@ data class RegisterRequest(
 
 // Quando um utilizador faz login, a app envia o username e password.
 data class LoginRequest(
-    val username: String,
+    val loginInput: String,
     val password: String
 )
 
@@ -24,11 +24,7 @@ data class LoginResponse(
     val token: String
 )
 
-//Isto permite que a API retorne uma lista de utilizadores registrados.
-data class UserResponse(
-    val username: String,
-    val email: String
-)
+
 
 // A interface define as chamadas que o Retrofit pode fazer para comunicar com o servidor.
 interface ApiService {
@@ -48,7 +44,4 @@ interface ApiService {
     @POST("/login")
     fun loginUser(@Body request: LoginRequest): Call<LoginResponse>
 
-    //O servidor retorna uma lista de utilizadores.
-    @GET("/users")
-    fun getUsers(): Call<List<UserResponse>>
 }

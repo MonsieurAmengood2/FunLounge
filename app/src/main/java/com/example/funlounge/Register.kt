@@ -3,6 +3,7 @@ package com.example.funlounge
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.util.Patterns
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
@@ -38,6 +39,23 @@ class Register : AppCompatActivity() {
                 //Mas não "volta" para nenhum outro lugar, apenas finaliza a execução do setOnClickListener
                 return@setOnClickListener
             }
+
+            // Verificar se o email é válido
+            if (!isValidEmail(emailText)) {
+                Toast.makeText(this, "Email inválido,domínio não aceite", Toast.LENGTH_LONG).show()
+                return@setOnClickListener
+            }
+
+            // Verifica se a senha é válida
+            if (!isValidPassword(passwordText)) {
+                Toast.makeText(
+                    this,
+                    "A senha deve ter pelo menos 6 caracteres, uma letra maiúscula, uma minúscula e um símbolo!",
+                    Toast.LENGTH_LONG
+                ).show()
+                return@setOnClickListener
+            }
+
 
             //Se as senhas forem diferentes, exibe "As senhas não coincidem" no Toast
             if (passwordText != confirmPasswordText) {
@@ -84,5 +102,34 @@ class Register : AppCompatActivity() {
                 }
             })
         }
+    }
+
+    //Verificar se um email é válido antes de permitir o registro do utilizador
+    private fun isValidEmail(email: String): Boolean {
+        //Esta lista será usada para verificar se o email termina com um domínio válido
+        val allowedDomains = listOf("@gmail.com", "@outlook.pt", "@outlook.com", "@hotmail.com")
+        //Duas condiçoes que precisam ser true para validar o email
+        //"Patterns.EMAIL_ADDRESS" → É um padrão de email pré-definido no Android.
+        //Patterns.EMAIL_ADDRESS.matcher("joao@gmail.com").matches() -->true (válido)
+        //Patterns.EMAIL_ADDRESS.matcher("joao@gmail").matches()--> false (falta .com)
+        //any { email.endsWith(it) } percorre a "listaOf" e vê se o email termina com algum desses domínios.
+        //Em suma,primeiro vemos se o email segue um padrao comum e depois se o dominio pertence à lista
+        return Patterns.EMAIL_ADDRESS.matcher(email).matches() && allowedDomains.any { email.endsWith(it) }
+    }
+    // Função que valida se uma senha atende a certos critérios antes de ser aceite.
+    private fun isValidPassword(password: String): Boolean {
+        //"(?=.*[a-z])"-->	Deve ter pelo menos uma letra minúscula (a-z)
+        //"(?=.*[A-Z])"-->	Deve ter pelo menos uma letra maiúscula (A-Z)
+        //"(?=.*[!@#\$%^&*.,?])"-->	Deve ter pelo menos um símbolo especial (!@#$%^&*.,?)
+        //".{6,}$"-->Deve ter pelo menos 6 caracteres
+        //"$"-->	Fim da senha
+        // Regex faz parte da biblioteca Java Standard Library, então já está embutido na linguagem.
+        // Portanto não é preciso importar nada, pois já está disponível.
+        //O regex cria um padrão de busca para validar strings.
+        val regex = Regex("^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#\$%^&*.,?]).{6,}$")
+
+        //verifica se a senha digitada pelo utilizador corresponde ao padrão definido pelo Regex.
+        //Se a senha for válida, retorna true
+        return regex.matches(password)
     }
 }

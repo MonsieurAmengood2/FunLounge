@@ -14,21 +14,16 @@ import retrofit2.converter.gson.GsonConverterFactory
 //-> Facilita a comunicação entre a app e o backend
 //-->Fonte:https://medium.com/@ardasenbakkavaci/consuming-nodejs-backend-api-in-android-kotlin-3d93f43aa4ac
 object RetrofitClient {
-    //O 10.0.2.2 é o endereço usado para aceder ao localhost (127.0.0.1) dentro do Emulador Android.
-    //Define o endereço do servidor Node.js--> http://10.0.2.2:3001/
-    private const val BASE_URL = "http://10.0.2.2:3001/"
+    //URL correta do backend no Railway
+    private const val BASE_URL = "https://web-production-43f0a.up.railway.app/"
 
     //by lazy { ... }--> Faz com que o Retrofit só seja inicializado quando for necessário
     // Retrofit não será criado na inicialização da app, apenas quando for chamado.
     val instance: Retrofit by lazy {
         //Cria um objeto Retrofit que será usado para fazer chamadas de API.
         Retrofit.Builder()
-            // Esse URL será usado como prefixo para todas as chamadas definidas no ApiService.kt
-            // Se BASE_URL = "http://10.0.2.2:3001/", todas as requisições usarão esse URL:
-            //POST /login → http://10.0.2.2:3001/login
-            //POST /register → http://10.0.2.2:3001/register
-            .baseUrl(BASE_URL)
 
+            .baseUrl(BASE_URL)
             //Adiciona um "conversor" para transformar automaticamente JSON em objetos Kotlin.
             .addConverterFactory(GsonConverterFactory.create())
 

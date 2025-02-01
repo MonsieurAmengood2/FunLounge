@@ -1,6 +1,9 @@
+
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+
 }
 
 android {
@@ -29,28 +32,34 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
+        kotlinOptions {
+            jvmTarget = "1.8"
+        }
     }
-    kotlinOptions {
-        jvmTarget = "1.8"
+
+    dependencies {
+
+
+        // A API é definida no código (endpoints, métodos, etc.)
+        //O Retrofit envia a requisição HTTP para a API
+        //A API responde com um JSON
+        //O Gson converte esse JSON automaticamente para um objeto Kotlin
+        implementation(libs.retrofit)
+        implementation(libs.gson)
+        implementation(libs.play.services.games)
+
+
+
+        implementation(libs.androidx.core.ktx)
+        implementation(libs.androidx.appcompat)
+        implementation(libs.material)
+        implementation(libs.androidx.activity)
+        implementation(libs.androidx.constraintlayout)
+        testImplementation(libs.junit)
+        androidTestImplementation(libs.androidx.junit)
+        androidTestImplementation(libs.androidx.espresso.core)
     }
 }
-
 dependencies {
-    
-    // A API é definida no código (endpoints, métodos, etc.)
-    //O Retrofit envia a requisição HTTP para a API
-    //A API responde com um JSON
-    //O Gson converte esse JSON automaticamente para um objeto Kotlin
-    implementation(libs.retrofit)
-    implementation(libs.gson)
-
-
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
-    implementation(libs.androidx.activity)
-    implementation(libs.androidx.constraintlayout)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+    implementation(libs.androidx.recyclerview)
 }

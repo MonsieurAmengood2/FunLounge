@@ -1,6 +1,5 @@
 package com.example.funlounge
 
-import com.example.funlounge.MainActivity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button

@@ -1,19 +1,26 @@
 package com.example.funlounge
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.funlounge.R
-import com.example.funlounge.WinDialog
+
 
 
 //A classe MainActivity herda de AppCompatActivity, que fornece funcionalidades para compatibilidade
 // com versões mais antigas do Android.
 class MainActivity : AppCompatActivity() {
 
+
+
     //Declaração de Variáveis
+
+
+    //Esta variável é um "controle de segurança" para garantir que a contagem de partidas só
+    // seja atualizada uma vez por jogo, quando há um vencedor ou um empate.
+    private var gameCountUpdated = false
 
     //Lista de combinações vencedoras do jogo (linhas, colunas e diagonais)
     private val combinationsList: MutableList<IntArray> = ArrayList()
@@ -52,6 +59,8 @@ class MainActivity : AppCompatActivity() {
     //O uso de lateinit significa que ela será inicializada posteriormente, antes de ser utilizada.
     private lateinit var boardLineDrawer: BoardLineDrawer
 
+
+
     // Método onCreate:Chamado quando a tela é criada. Aqui são configurados os elementos da interface e
     // inicializadas as variáveis.
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,6 +68,7 @@ class MainActivity : AppCompatActivity() {
 
         //Definir o layout da interface com base no arquivo XML activity_main.xml
         setContentView(R.layout.activity_main)
+
 
         //Se o elemento jogador1nome estiver presente no layout:"(R.layout.activity_main)", ele será encontrado e
         // referenciado pela variável playerOneName
@@ -102,6 +112,9 @@ class MainActivity : AppCompatActivity() {
 
         //o objeto boardLineDrawer é associado ao elemento correspondente no layout XML (R.id.boardLineDrawer)
         boardLineDrawer = findViewById(R.id.boardLineDrawer)
+
+
+
 
         //Obter os nomes dos jogadores passados do layout "activity_adicionar_jogadores.xml" e exibi-los na
         // interface Main
@@ -237,20 +250,39 @@ class MainActivity : AppCompatActivity() {
             // Verificar se a linha é diagonal, vertical ou horizontal
             val isDiagonalLTR = (combination.contentEquals(intArrayOf(0, 4, 8)))  // Diagonal Esquerda para Direita
             val isDiagonalRTL = (combination.contentEquals(intArrayOf(2, 4, 6)))  // Diagonal Direita para Esquerda
+
+            //Se todas as posições da combinação vencedora tiverem o mesmo resto quando divididas por 3,
+            // significa que estão na mesma coluna.
             val isVertical = combination[0] % 3 == combination[1] % 3
+
+            // Posições na mesma linha sempre terão o mesmo quociente quando divididas por 3.
             val isHorizontal = combination[0] / 3 == combination[1] / 3
 
+            //offsetX e offsetY garante que a linha seja desenhada corretamente no meio das células quando
+            // for horizontal ou vertical.
             val offsetX = if (isVertical) startView.width / 2 else 0
             val offsetY = if (isHorizontal) startView.height / 2 else 0
 
-            // Ajuste específico para diagonais
-            val adjustedStartX = if (isDiagonalLTR) startX else if (isDiagonalRTL) startX + startView.width else startX + offsetX
-            val adjustedStartY = startY + offsetY
-            val adjustedEndX = if (isDiagonalLTR) endX else if (isDiagonalRTL) endX - endView.width else endX - offsetX
+
+
+            val adjustedStartX = if (isDiagonalLTR) startX //Se for diagonal da esquerda para a
+                                                          // direita (isDiagonalLTR), startX permanece o mesmo
+
+                                 else if (isDiagonalRTL) startX + startView.width //Se for diagonal da direita para a esquerda
+                          // (isDiagonalRTL)  startX precisa começar mais à direita, então soma-se startView.width.
+
+                                 else startX + offsetX //Para linhas horizontais ou verticais,
+                                                     // adiciona-se o offsetX para ajustar o início corretamente.
+            val adjustedStartY = startY + offsetY //isto garante que a linha comece no centro das células, caso necessário
+
+            val adjustedEndX = if (isDiagonalLTR) endX
+                               else if (isDiagonalRTL) endX - endView.width
+                               else endX - offsetX
             val adjustedEndY = endY - offsetY
 
-            // Tornar visível e desenhar a linha corrigida
+            // Tornar visível a linha
             boardLineDrawer.visibility = View.VISIBLE
+            //Chama a função que realmente desenha a linha, passando as coordenadas ajustadas.
             boardLineDrawer.drawWinningLine(
                 adjustedStartX.toFloat(),
                 adjustedStartY.toFloat(),
@@ -278,8 +310,7 @@ class MainActivity : AppCompatActivity() {
         //Isto permite que o nome do jogador que fez a jogada seja armazenado na variável playerName,
         // para que se possa usá-lo posteriormente, por exemplo, para exibir mensagens como "Jogador X ganhou!"
         // quando um vencedor for encontrado.
-        val playerName = if (playerTurn == 1) playerOneName.text else playerTwoName.text
-
+        val playerName = if (playerTurn == 1) playerOneName.text.toString() else playerTwoName.text.toString()
 
         //Escolher a imagem correta com base no jogador atual
         //R.drawable.cruz: Ícone de X para o jogador 2.
@@ -294,8 +325,18 @@ class MainActivity : AppCompatActivity() {
         //Exibe-se uma mensagem com o nome do jogador usando a classe WinDialog.
         //O diálogo de vitória impede que o utilizar continue a jogar (setCancelable(false))
         if (checkPlayerWin()) {
+
+            if (!gameCountUpdated) {
+                incrementGameCount(this)
+                gameCountUpdated = true
+            }
+
             // Armazenar quem ganhou para começar a próxima partida
             lastWinner = playerTurn
+
+
+
+
             val winDialog = WinDialog(this, "$playerName ganhou o jogo!", this)
 
             // Configurar a posição do diálogo para ficar numa zona que dê mais "conforto" aos jogadores
@@ -317,10 +358,26 @@ class MainActivity : AppCompatActivity() {
         //Caso todas as 9 casas tenham sido preenchidas sem um vencedor, é declarado um empate.
         //Um diálogo é exibido informando que o jogo terminou empatado.
         } else if (totalSelectedBoxes == 9) {
-            lastWinner = 0  // Reset para 0 para garantir a escolha aleatória no caso de empate
+
+            //"if (!gameCountUpdated)" é a mesma coisa que "if (gameCountUpdated == false)"
+            //o if só entra no bloco de código se gameCountUpdated for false
+            // (o que indica que a contagem de jogos ainda não foi incrementada).
+            if (!gameCountUpdated) {
+                incrementGameCount(this)
+                //Após a contagem de jogos ser incrementada, a variável gameCountUpdated é marcada como true:
+                //Isso garante que, após o incremento, o código não execute novamente a função incrementGameCount
+                //evitando assim que a contagem de jogos seja incrementada mais de uma vez
+                gameCountUpdated = true
+            }
+
+            lastWinner = 0  // Reset para 0 para garantir escolha aleatória no caso de empate
+
+
+
+
             val winDialog = WinDialog(this, "Empate!", this)
 
-            // Configurar a posição do diálogo
+
             val window = winDialog.window
             window?.setGravity(android.view.Gravity.TOP)
             val layoutParams = window?.attributes
@@ -338,6 +395,41 @@ class MainActivity : AppCompatActivity() {
             changePlayerTurn(if (playerTurn == 1) 2 else 1)
         }
     }
+
+
+    //Definição de uma função privada chamada incrementGameCount, que aceita um parâmetro context do tipo Context
+    //O context é necessário para aceder às SharedPreferences, que são usadas para salvar dados persistentes no dispositivo.
+    private fun incrementGameCount(context: Context) {
+
+        //"context.getSharedPreferences()" é um método que retorna um objeto SharedPreferences,
+        // que é uma forma de armazenar dados simples, como números e textos, no armazenamento local do dispositivo.
+        //O primeiro argumento "TicTacToePrefs" é o nome do arquivo onde os dados serão armazenados.
+        // O arquivo pode ter qualquer nome, mas deve ser único para não sobrescrever outro arquivo.
+        //O segundo argumento "Context.MODE_PRIVATE" indica que o arquivo de preferências é privado
+        // e só acessível pela aplicação atual
+        val prefs = context.getSharedPreferences("TicTacToePrefs", Context.MODE_PRIVATE)
+
+        //Aqui tenta-se ir buscar o valor de "games_played" nas preferências.
+        // Se não for encontrado é retornado o valor 0 (o que é útil para configurar o contador na primeira execução da app)
+        // O valor recuperado (seja o número de jogos jogados ou o valor padrão 0) é então armazenado na variável currentCount.
+        // Então, currentCount vai armazenar o número atual de jogos jogados.
+        //Se games_played já foi armazenado como 5, currentCount vai ser 5
+        //Se games_played não existir (primeira execução), currentCount será 0
+        val currentCount = prefs.getInt("games_played", 0)
+
+        //esta linha modifica o valor de "games_played" para que ele seja incrementado em 1
+        //Chama-se o método edit() para iniciar uma transação de edição das preferências.
+        // Esse metodo cria um objeto Editor que permite modificar as preferências armazenadas
+        // (como adicionar ou modificar valores).
+        //O método putInt() adiciona ou modifica o valor de uma chave nas SharedPreferences. Neste caso:
+        //A chave é "games_played", ou seja, estamos a manipular o contador de jogos jogados.
+        //O valor será currentCount + 1, ou seja, o valor atual (recuperado na etapa anterior) é incrementado em 1.
+        // Se o valor de currentCount for 5, por exemplo, o valor que será armazenado será 6.
+        //Após modificar as preferências com putInt(), é necessário chamar apply() para salvar as mudanças.
+        prefs.edit().putInt("games_played", currentCount + 1).apply()
+    }
+
+
 
 
     //Alternar a vez entre os jogadores e atualizar a interface visual para indicar de quem é a vez.
@@ -407,16 +499,16 @@ class MainActivity : AppCompatActivity() {
 
     //Este método redefine o jogo para um novo começo, restaurando as variáveis e a interface do utilizador.
     fun restartMatch() {
-        boxPositions = intArrayOf(0, 0, 0, 0, 0, 0, 0, 0, 0)
 
-        playerTurn = 0
+        gameCountUpdated = false
+        boxPositions = intArrayOf(0, 0, 0, 0, 0, 0, 0, 0, 0)
         totalSelectedBoxes = 0
 
         //Esta linha está a atribuir um valor à variável playerTurn, que determina qual jogador (1 ou 2)
         // começará a próxima partida.
         //Condição (if (lastWinner == 0))
         //Verifica se a variável lastWinner é igual a 0, ou seja, se não houve vencedor na última partida
-        // (provavelmente devido a um empate ou início do jogo).
+        // ( devido a um empate ou início do jogo).
         //Se a condição for verdadeira (lastWinner == 0) Executa (1..2).random(),
         // que gera um número aleatório entre 1 e 2, escolhendo aleatoriamente quem começa o jogo.
         //Se a condição for falsa (lastWinner != 0)
