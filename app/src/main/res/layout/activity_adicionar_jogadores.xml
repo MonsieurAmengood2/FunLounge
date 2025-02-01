@@ -22,8 +22,8 @@
         android:gravity="center_vertical"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
         android:layout_marginTop="50dp"
         android:background="@color/green"
         android:orientation="horizontal">
@@ -53,8 +53,8 @@
         android:gravity="center_vertical"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
         android:layout_marginTop="50dp"
         android:background="@color/green"
         android:orientation="horizontal">
@@ -62,18 +62,20 @@
             android:layout_marginStart="20dp"
             android:layout_width="30dp"
             android:layout_height="30dp"
+            android:contentDescription="@string/logo_jogador2"
             android:src="@drawable/cruz"/>
 
         <EditText
+            android:autofillHints=""
             android:inputType="text"
             android:maxLines="1"
             android:id="@+id/jogador2nome"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="30dp"
             android:layout_marginEnd="20dp"
             android:background="@color/light_green"
-            android:hint="Jogador 2"
+            android:hint="@string/jogador_2"
             android:textColorHint="@color/black"
             android:textColor="#FFFFFF"/>
     </LinearLayout>
@@ -82,10 +84,10 @@
         android:id="@+id/ComecarJogoBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:layout_marginStart="20dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginStart="80dp"
         android:layout_marginTop="40dp"
-        android:text="Começar Jogo"
+        android:text="@string/come_ar_jogo"
         android:textColor="#FFFFFF"
         android:background="@drawable/greenbutton"/>
 

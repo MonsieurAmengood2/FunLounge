@@ -22,4 +22,7 @@
     <string name="introduzir_nome_dos_jogadores">Introduzir Nome dos Jogadores</string>
     <string name="logo_jogador1">logo jogador1</string>
     <string name="jogador_1">Jogador 1</string>
+    <string name="jogador_2">Jogador 2</string>
+    <string name="come_ar_jogo">Começar Jogo</string>
+    <string name="logo_jogador2">logo jogador2</string>
 </resources>
