@@ -5,4 +5,9 @@
     <string name="registar_conta">Registar Conta</string>
     <string name="iniciar_sessao">Iniciar Sessão</string>
     <string name="logo_funlounge">Logo FUNLOUNGE</string>
+    <string name="nome_de_utilizador">Nome de Utilizador</string>
+    <string name="email">Email</string>
+    <string name="palavra_passe">Palavra-Passe</string>
+    <string name="confirmar_palavra_passe">Confirmar Palavra-Passe</string>
+    <string name="registar">Registar</string>
 </resources>

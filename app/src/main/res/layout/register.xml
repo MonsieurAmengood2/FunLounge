@@ -4,31 +4,32 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@drawable/panodefundo">
+    android:background="@color/light_pink">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Registrar Conta"
-        android:textSize="30sp"
+        android:text="@string/registar_conta"
+        android:textSize="40sp"
         android:textStyle="bold"
-        android:textColor="@color/white"/>
+        android:textColor="@color/black"/>
 
     <EditText
         android:id="@+id/username"
         android:layout_width="match_parent"
         android:layout_height="55dp"
+        android:autofillHints="username"
         android:background="@drawable/round_login"
-        android:hint="Nome de Utilizador"
-        android:textColorHint="@color/white"
+        android:hint="@string/nome_de_utilizador"
+        android:textColorHint="@color/black"
         android:maxLines="1"
         android:inputType="text"
         android:textSize="16sp"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
         android:layout_marginTop="40dp"
         />
 
@@ -36,33 +37,35 @@
         android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="55dp"
+        android:autofillHints="email"
         android:background="@drawable/round_login"
-        android:hint="Email"
-        android:textColorHint="@color/white"
+        android:hint="@string/email"
+        android:textColorHint="@color/black"
         android:maxLines="1"
         android:inputType="textEmailAddress"
         android:textSize="16sp"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="20dp"
-
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="40dp"
         />
+
     <EditText
         android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="55dp"
+        android:autofillHints="password"
         android:background="@drawable/round_login"
-        android:hint="Palavra-Passe"
-        android:textColorHint="@color/white"
+        android:hint="@string/palavra_passe"
+        android:textColorHint="@color/black"
         android:maxLines="1"
         android:inputType="textPassword"
         android:textSize="16sp"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
         android:layout_marginTop="40dp"
         />
 
@@ -71,16 +74,17 @@
         android:id="@+id/confirmpassword"
         android:layout_width="match_parent"
         android:layout_height="55dp"
+        android:autofillHints="confirmar password"
         android:background="@drawable/round_login"
-        android:hint="Confirmar Palavra-Passe"
-        android:textColorHint="@color/white"
+        android:hint="@string/confirmar_palavra_passe"
+        android:textColorHint="@color/black"
         android:maxLines="1"
         android:inputType="textPassword"
         android:textSize="16sp"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
         android:layout_marginTop="10dp"
         />
 
@@ -89,9 +93,9 @@
         android:id="@+id/signUpBtn"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginStart="20dp"
-        android:text="Registrar Conta"
+        android:layout_marginEnd="50dp"
+        android:layout_marginStart="50dp"
+        android:text="@string/registar"
         android:layout_marginTop="40dp"
         android:background="@drawable/greenbutton"/>
 
