@@ -2,4 +2,7 @@
     <string name="app_name">FunLounge</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="registar_conta">Registar Conta</string>
+    <string name="iniciar_sessao">Iniciar Sessão</string>
+    <string name="logo_funlounge">Logo FUNLOUNGE</string>
 </resources>
