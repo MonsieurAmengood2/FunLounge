@@ -17,4 +17,6 @@
     <string name="jogar">Jogar</string>
     <string name="ver_estatasticas">Ver Estatísticas</string>
     <string name="definicoes_utilizador">Definições Utilizador</string>
+    <string name="acerca_da_app_funlounge">Acerca da App FUNLOUNGE</string>
+    <string name="acerca_da_app">Aplicação desenvolvida por:\n-Daniel Afonso, nº 20615\n-João Correia, nº 21302\n\nUnidade Curricular\nDesenvolvimento de Aplicações Móveis\n\nDocentes:\nProf. Paulo Santos\nProf. José Casimiro\n\n2024/2025</string>
 </resources>
