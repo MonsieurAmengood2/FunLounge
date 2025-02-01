@@ -8,9 +8,8 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.annotation.NonNull
-import androidx.core.content.ContextCompat.startActivity
 
-class WinDialog(@NonNull context: Context, private val message: String, private val mainActivity: MainActivity)
+class WinDialog(@NonNull context: Context, private val message: String, private val mainActivityJogo: MainActivityJogo)
     : Dialog(context) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,7 +33,7 @@ class WinDialog(@NonNull context: Context, private val message: String, private 
         // (Para reiniciar o jogo).
         //Em seguida, o diálogo é fechado com o método dismiss().
         startAgainBtn.setOnClickListener {
-            mainActivity.restartMatch();
+            mainActivityJogo.restartMatch();
             dismiss();
         }
 

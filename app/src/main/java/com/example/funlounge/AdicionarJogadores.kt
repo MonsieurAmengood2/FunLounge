@@ -44,7 +44,7 @@ class AdicionarJogadores : AppCompatActivity() {
             // Os nomes dos jogadores são passados para a MainActivity através de putExtra(), que insere os dados
             // no Intent. Isso permite que a MainActivity receba os nomes dos jogadores e os utilize.
             } else {
-                val intent = Intent(this, MainActivity::class.java).apply {
+                val intent = Intent(this, MainActivityJogo::class.java).apply {
                     putExtra("jogador1", getPlayerOneName)
                     putExtra("jogador2", getPlayerTwoName)
                 }
