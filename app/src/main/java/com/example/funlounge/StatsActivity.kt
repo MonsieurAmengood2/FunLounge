@@ -25,7 +25,7 @@ class StatsActivity : AppCompatActivity() {
         btnResetGames.setOnClickListener {
             resetGameCount(this) // Resetar o contador
             txtGamesPlayed.text = "Jogos Jogados: 0" // Atualizar a interface
-            Toast.makeText(this, "Número de jogos resetado!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Número de jogos reiniciado!", Toast.LENGTH_SHORT).show()
         }
 
     }

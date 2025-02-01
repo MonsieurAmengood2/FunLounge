@@ -4,22 +4,29 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="@drawable/panodefundo">
+    android:background="@color/light_pink">
 
     <TextView
         android:id="@+id/txtGamesPlayed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Jogos Jogados: 0"
+        android:text="@string/jogos_jogados_0"
         android:textSize="20sp"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:layout_gravity="center"
-        android:padding="16dp"/>
+        android:padding="16dp"
+        android:textStyle="bold"
+        android:layout_marginTop="250dp"/>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnResetGames"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Resetar Jogos"
-        android:layout_gravity="center"/>
+        android:textStyle="bold"
+        android:layout_marginEnd="80dp"
+        android:layout_marginStart="80dp"
+        android:text="@string/reiniciar_estat_stica"
+        android:layout_gravity="center"
+        android:background="@drawable/greenbutton"/>
+
 </LinearLayout>

@@ -25,4 +25,6 @@
     <string name="jogador_2">Jogador 2</string>
     <string name="come_ar_jogo">Começar Jogo</string>
     <string name="logo_jogador2">logo jogador2</string>
+    <string name="jogos_jogados_0">Jogos Jogados: 0</string>
+    <string name="reiniciar_estat_stica">Reiniciar Estatística</string>
 </resources>
