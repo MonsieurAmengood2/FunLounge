@@ -4,49 +4,52 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@drawable/panodefundo">
+    android:background="@color/light_pink">
 
    <TextView
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:layout_gravity="center"
-       android:text="Iniciar Sessão"
-       android:textSize="30sp"
+       android:text="@string/iniciar_sessao"
+       android:textSize="40sp"
        android:textStyle="bold"
-       android:textColor="@color/white"/>
+       android:textColor="@color/black"/>
 
     <EditText
         android:id="@+id/user"
         android:layout_width="match_parent"
         android:layout_height="55dp"
+        android:autofillHints="username ou email"
         android:background="@drawable/round_login"
-        android:hint="Nome de Utilizador ou Email"
-        android:textColorHint="@color/white"
+        android:hint="@string/nome_de_utilizador_ou_email"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
         android:maxLines="1"
         android:inputType="text"
         android:textSize="16sp"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
         android:layout_marginTop="40dp"
-
         />
 
     <EditText
         android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="55dp"
+        android:autofillHints="password"
         android:background="@drawable/round_login"
-        android:hint="Palavra-Passe"
-        android:textColorHint="@color/white"
+        android:hint="@string/palavra_passe"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
         android:maxLines="1"
         android:inputType="textPassword"
         android:textSize="16sp"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
         android:layout_marginTop="40dp"
         />
 
@@ -55,10 +58,10 @@
           android:id="@+id/signInBtn"
           android:layout_width="match_parent"
           android:layout_height="55dp"
-          android:layout_marginEnd="20dp"
-          android:layout_marginStart="20dp"
-          android:text="Iniciar Sessão"
-          android:layout_marginTop="40dp"
+          android:layout_marginEnd="50dp"
+          android:layout_marginStart="50dp"
+          android:text="@string/palavra_passe"
+          android:layout_marginTop="60dp"
           android:background="@drawable/greenbutton"/>
 
 

@@ -10,4 +10,6 @@
     <string name="palavra_passe">Palavra-Passe</string>
     <string name="confirmar_palavra_passe">Confirmar Palavra-Passe</string>
     <string name="registar">Registar</string>
+    <string name="nome_de_utilizador_ou_email">Nome de Utilizador ou Email</string>
+    <string name="password">Palavra-Passe</string>
 </resources>
