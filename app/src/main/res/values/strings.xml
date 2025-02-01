@@ -12,4 +12,9 @@
     <string name="registar">Registar</string>
     <string name="nome_de_utilizador_ou_email">Nome de Utilizador ou Email</string>
     <string name="password">Palavra-Passe</string>
+    <string name="efetuar_login">Efetuar Login</string>
+    <string name="jogo_do_galo">Jogo do Galo</string>
+    <string name="jogar">Jogar</string>
+    <string name="ver_estatasticas">Ver Estatísticas</string>
+    <string name="definicoes_utilizador">Definições Utilizador</string>
 </resources>

@@ -3,25 +3,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/panodefundo">
+    android:background="@color/light_pink">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="190dp"
-        android:text="Jogo do Galo"
-        android:textSize="30sp"
+        android:text="@string/jogo_do_galo"
+        android:textSize="50sp"
         android:textStyle="bold"
-        android:textColor="@color/white"/>
+        android:textColor="@color/black"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/JogarBtn"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginStart="20dp"
-        android:text="Jogar"
+        android:layout_marginEnd="50dp"
+        android:layout_marginStart="50dp"
+        android:text="@string/jogar"
         android:layout_marginTop="40dp"
         android:background="@drawable/greenbutton"/>
 
@@ -29,9 +29,9 @@
         android:id="@+id/StatsBtn"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginStart="20dp"
-        android:text="Ver Estatísticas"
+        android:layout_marginEnd="50dp"
+        android:layout_marginStart="50dp"
+        android:text="@string/ver_estatasticas"
         android:layout_marginTop="40dp"
         android:background="@drawable/greenbutton"/>
 
@@ -39,9 +39,9 @@
         android:id="@+id/DefinBtn"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginStart="20dp"
-        android:text="Definições Utilizador"
+        android:layout_marginEnd="50dp"
+        android:layout_marginStart="50dp"
+        android:text="@string/definicoes_utilizador"
         android:layout_marginTop="40dp"
         android:background="@drawable/greenbutton"/>
 

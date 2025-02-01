@@ -38,7 +38,7 @@ class WinDialog(@NonNull context: Context, private val message: String, private 
         }
 
         retrocederBtn.setOnClickListener {
-            val intent = Intent(context, MenuTransicao::class.java)
+            val intent = Intent(context, MenuTransicaoActivity::class.java)
             context.startActivity(intent)
         }
     }

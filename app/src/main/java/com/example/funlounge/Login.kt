@@ -78,7 +78,7 @@ class Login : AppCompatActivity() {
                             //Exibe um Toast ("Login bem-sucedido!") para informar ao utilizador
                             Toast.makeText(this@Login, "Login bem-sucedido!", Toast.LENGTH_SHORT).show()
                             //Cria uma Intent para abrir a próxima tela (MenuTransicao)
-                            val intent = Intent(this@Login, MenuTransicao::class.java)
+                            val intent = Intent(this@Login, MenuTransicaoActivity::class.java)
                             //Envia o token para a próxima tela
                             intent.putExtra("TOKEN", token)
                             //Inicia a próxima tela
