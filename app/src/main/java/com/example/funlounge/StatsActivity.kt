@@ -1,5 +1,6 @@
 
 package com.example.funlounge
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.widget.Button
@@ -9,11 +10,12 @@ import androidx.appcompat.app.AppCompatActivity
 
 
 class StatsActivity : AppCompatActivity() {
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_stats)
 
-        val btnResetGames: Button = findViewById(R.id.btnResetGames)
+        //val btnResetGames: Button = findViewById(R.id.btnResetGames)
         val txtGamesPlayed: TextView = findViewById(R.id.txtGamesPlayed)
 
         // "gamesPlayed" recebe o número de jogos jogados, que é obtido pela função getGameCount(this)
@@ -23,11 +25,12 @@ class StatsActivity : AppCompatActivity() {
         txtGamesPlayed.text = "Jogos Jogados: $gamesPlayed"
 
         //Testar funcionamento do incremento de jogos jogados
-        btnResetGames.setOnClickListener {
-            resetGameCount(this) // Dar reset ao contador
-            txtGamesPlayed.text = "Jogos Jogados: 0" // Atualizar a interface
-            Toast.makeText(this, "Número de jogos resetado!", Toast.LENGTH_SHORT).show()
-        }
+        //Este codigo serve so pra debug
+       // btnResetGames.setOnClickListener {
+        //    resetGameCount(this) // Dar reset ao contador
+        //    txtGamesPlayed.text = "Jogos Jogados: 0" // Atualizar a interface
+        //    Toast.makeText(this, "Número de jogos resetado!", Toast.LENGTH_SHORT).show()
+       // }
 
     }
 
@@ -43,10 +46,10 @@ class StatsActivity : AppCompatActivity() {
 
     //Testar funcionamento do incremento de jogos jogados
     //Este codigo serve so pra debug
-    fun resetGameCount(context: Context) {
-        val prefs = context.getSharedPreferences("TicTacToePrefs", Context.MODE_PRIVATE)
-        prefs.edit().putInt("games_played", 0).apply()
-    }
+    //private fun resetGameCount(context: Context) {
+      //  val prefs = context.getSharedPreferences("TicTacToePrefs", Context.MODE_PRIVATE)
+      //  prefs.edit().putInt("games_played", 0).apply()
+  //  }
 
 
 }

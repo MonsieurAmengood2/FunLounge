@@ -25,7 +25,7 @@ class Register : AppCompatActivity() {
         val signUpBtn: TextView = findViewById(R.id.signUpBtn)
 
         signUpBtn.setOnClickListener {
-            //Pega o texto digitado pelo utilizador e converte-o para String.
+            //Pega o texto digitado pelo utilizador e converte-o para uma String.
             val usernameText = username.text.toString().trim()
             val emailText = email.text.toString().trim()
             val passwordText = password.text.toString().trim()
@@ -68,7 +68,7 @@ class Register : AppCompatActivity() {
 
             val call = apiService.registerUser(RegisterRequest(usernameText, emailText, passwordText))
 
-            //Usa enqueue() para enviar a requisição ao servidor e aguardar a resposta assíncrona
+            //Usa enqueue() para enviar a requisição ao servidor e aguardar a resposta de forma assíncrona
             call.enqueue(object : Callback<Void> {
                 //Se o servidor responder, processa a resposta
                 override fun onResponse(call: Call<Void>, response: Response<Void>) {

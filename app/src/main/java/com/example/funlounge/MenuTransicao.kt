@@ -7,6 +7,8 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
+
+//Menu que aparece após se fazer Login com sucesso
 class MenuTransicao: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,21 +16,21 @@ class MenuTransicao: AppCompatActivity() {
         setContentView(R.layout.menutransicao)
 
 
-        val JogarBtn: TextView = findViewById(R.id.JogarBtn)
-        val StatsBtn: TextView = findViewById(R.id.StatsBtn)
-        val DefinBtn: Button = findViewById(R.id.DefinBtn)
+        val jogarBtn: TextView = findViewById(R.id.JogarBtn)
+        val statsBtn: TextView = findViewById(R.id.StatsBtn)
+        val definBtn: Button = findViewById(R.id.DefinBtn)
 
-        JogarBtn.setOnClickListener {
+        jogarBtn.setOnClickListener {
             val intent = Intent(this, MenuDecisaoJogo::class.java)
             startActivity(intent)
         }
 
-        DefinBtn.setOnClickListener {
+        definBtn.setOnClickListener {
             val intent = Intent(this, MenuDefinicoes::class.java)
             startActivity(intent)
         }
 
-        StatsBtn.setOnClickListener {
+        statsBtn.setOnClickListener {
             val intent = Intent(this, StatsActivity::class.java)
             startActivity(intent)
         }

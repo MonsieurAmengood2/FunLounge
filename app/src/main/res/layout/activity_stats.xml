@@ -16,10 +16,12 @@
         android:layout_gravity="center"
         android:padding="16dp"/>
 
-    <Button
+    <!--Botão somente necessário para realizar testes de funcionamento-->
+    <!--<Button
         android:id="@+id/btnResetGames"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Resetar Jogos"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"/> -->
+
 </LinearLayout>

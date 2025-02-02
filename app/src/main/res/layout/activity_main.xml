@@ -96,6 +96,9 @@
               android:layout_height="wrap_content"
               android:orientation="horizontal"
               android:weightSum="3">
+
+             <!-- android:adjustViewBounds="true" -->
+             <!--Não distorce a imagem, mesmo que o tamanho do ImageView seja diferente da imagem original.-->
               <ImageView
                   android:id="@+id/image1"
                   android:layout_marginTop="10dp"

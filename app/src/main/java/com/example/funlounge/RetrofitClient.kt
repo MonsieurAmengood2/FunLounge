@@ -17,7 +17,7 @@ object RetrofitClient {
 
     // URL do backend que está hospedado no Railway.
     //A app usa este URL para se conectar à API e buscar/enviar dados.
-    // Railway faz o deploy automaticamente do codigo que tenho hospedado no Github sempre que for feito um push.
+    // Railway faz o deploy automaticamente do codigo que está hospedado no Github sempre que for feito um push.
     private const val BASE_URL = "https://web-production-43f0a.up.railway.app/"
 
     //by lazy { ... }--> Faz com que o Retrofit só seja inicializado quando for necessário

@@ -57,7 +57,8 @@
                 android:background="@drawable/cruz"
                 android:scaleType="fitCenter"
                 android:layout_marginEnd="20dp"/>
-
+            <!--O atributo android:scaleType="fitCenter" no ImageView do Android redimensiona a imagem para caber dentro do
+            ImageView mantendo a proporção original -->
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/buttonChooseO"
                 android:layout_width="50dp"

@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 
+//menu que aparece antes de se começar a jogar com o bot
 class ChooseSymbolActivity : AppCompatActivity() {
 
     //Declaração das variáveis

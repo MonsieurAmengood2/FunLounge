@@ -4,19 +4,17 @@ package com.example.funlounge
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.os.Looper
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import okhttp3.Call
 import okhttp3.Callback
-import okhttp3.MediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
-import okhttp3.RequestBody
 import okhttp3.Response
 import java.io.IOException
 
+//menu em que aparecem a opção eliminar conta ou sair da sessão
 class MenuDefinicoes: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,23 +22,34 @@ class MenuDefinicoes: AppCompatActivity() {
         setContentView(R.layout.menu_definicoes_utilizador)
 
 
-        val EliminarPerfilBtn: TextView = findViewById(R.id.EliminarPerfilBtn)
-        val SairBtn: TextView = findViewById(R.id.SairBtn)
+        val eliminarPerfilBtn: TextView = findViewById(R.id.EliminarPerfilBtn)
+        val sairBtn: TextView = findViewById(R.id.SairBtn)
 
         // Adicionar ação ao botão "Eliminar Conta"
-        EliminarPerfilBtn.setOnClickListener {
+        //Obtém o token do utilizador armazenado nas SharedPreferences
+        eliminarPerfilBtn.setOnClickListener {
+
+            //"UserPrefs" é o nome do arquivo onde os dados são armazenados.
+            //Context.MODE_PRIVATE significa que apenas a aplicação FunLounge pode aceder a esses dados
+            //A aplicação FunLounge que chamou getSharedPreferences("UserPrefs", Context.MODE_PRIVATE) é a
+            // única que pode aceder aos dados salvos nesse SharedPreference
             val sharedPreferences = getSharedPreferences("UserPrefs", Context.MODE_PRIVATE)
+
+            //O null que aparece depois da chave "token" é o valor padrão que será retornado caso a chave "token"
+            // não exista no SharedPreferences
             val token = sharedPreferences.getString("token", null)
 
+            //Se o token não for null, é chamada a função eliminarConta(token), que envia uma requisição ao backend
+            // para excluir a conta do utilizador.
             if (token != null) {
-                eliminarConta(token) // Chama a função com o token do utilizador autenticado
+                eliminarConta(token)
             } else {
                 Toast.makeText(this, "Erro: Token não encontrado!", Toast.LENGTH_SHORT).show()
             }
         }
 
-        // Quando clicar no botão "Sair" ir para o MenuInicial (sem eliminar a conta)
-        SairBtn.setOnClickListener {
+        // Quando clicar no botão "Sair" vai-se para o MenuInicial (sem eliminar a conta)
+        sairBtn.setOnClickListener {
             val intent = Intent(this, MenuInicial::class.java)
             startActivity(intent)
             finish()
@@ -50,7 +59,7 @@ class MenuDefinicoes: AppCompatActivity() {
     }
 
 
-    //Esta função faz uma requisição DELETE para o servidor remoto e envia o username do utilizador para eliminá-lo.
+    //Esta função faz uma requisição DELETE para o servidor remoto e envia um token para eliminar o user que está logado
     private fun eliminarConta(token: String) {
 
         //Cria uma instância de OkHttpClient, que é usada para fazer requisições HTTP.

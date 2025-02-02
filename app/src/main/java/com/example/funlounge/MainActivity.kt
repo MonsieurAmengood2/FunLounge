@@ -1,4 +1,5 @@
 package com.example.funlounge
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.view.View
@@ -71,6 +72,7 @@ class MainActivity : AppCompatActivity() {
 
     // Método onCreate:Chamado quando a tela é criada. Aqui são configurados os elementos da interface e
     // inicializadas as variáveis.
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -160,7 +162,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        //Quando é iniciado o primeiro jogo de todos é
+        //Quando é iniciado o primeiro jogo de todos no "modo humano contra humano" é
         //escolhido de forma aleatória o primeiro jogador
         //a jogar
         if (playerTurn == 0) {
@@ -191,7 +193,7 @@ class MainActivity : AppCompatActivity() {
         //Dar "enfase visualmente" identificando logo no inicio o 1ºjogador que ira começar a jogar no 1ºjogo
         updateTurnUI()
 
-        //Quando o jogador clica numa "box" é verificada se está disponível com isBoxSelectable.
+        //Quando o jogador clica numa casa do tabuleiro é verificada se está disponível com isBoxSelectable.
         //Se estiver disponível chama-se o performAction para registrar a jogada.
         image1.setOnClickListener {
             if (isBoxSelectable(1)) {
@@ -274,7 +276,7 @@ class MainActivity : AppCompatActivity() {
         return if (symbol == "X") R.drawable.cruz else R.drawable.bola
     }
 
-    //Este método drawWinningLine é responsável por desenhar uma linha visualmente sobre a combinação vencedora
+    //Este método drawWinningLine é responsável por desenhar uma linha de forma visual sobre a combinação vencedora
     // no tabuleiro do jogo
     private fun drawWinningLine(combination: IntArray) {
 
@@ -584,7 +586,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-    //O método performAction é chamado quando o jogador seleciona uma casa/"box" no tabuleiro.
+    //O método performAction é chamado quando o jogador seleciona uma casa no tabuleiro.
     // O método atualiza o estado do jogo com base na jogada, altera a interface visual e verifica se
     // houve um vencedor ou empate.
     private fun performAction(imageView: ImageView, selectedBoxPosition: Int) {
@@ -607,8 +609,9 @@ class MainActivity : AppCompatActivity() {
 
         //Este código escolhe a imagem (X ou O) que deve ser exibida no tabuleiro,
         // dependendo de quem está a jogar no momento (playerTurn).
-        val imageRes = if (playerTurn == 1) {
+        val imageRes =
 
+            if (playerTurn == 1) {
             // Chama a função getImageResourceForSymbol() para obter a imagem correta pro jogador humano do jogador humano
             getImageResourceForSymbol(playerSymbol)
 

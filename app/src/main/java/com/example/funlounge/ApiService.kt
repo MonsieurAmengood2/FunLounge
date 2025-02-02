@@ -2,7 +2,6 @@ package com.example.funlounge
 
 import retrofit2.Call
 import retrofit2.http.Body
-import retrofit2.http.GET
 import retrofit2.http.POST
 
 // Quando um utilizador se regista, a app envia username, email e password para o servidor.

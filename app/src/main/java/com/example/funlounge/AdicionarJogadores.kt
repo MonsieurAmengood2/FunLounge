@@ -8,7 +8,7 @@ import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 
-
+   //O menu em que se inserem os nomes dos dois jogadores humanos que vão jogar
 class AdicionarJogadores : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,7 +17,7 @@ class AdicionarJogadores : AppCompatActivity() {
 
         //Buscar os elementos da interface gráfica (o botão e os dois campos de texto) definidos no arquivo XML
         // do layout da tela ("activity_adicionar_jogadores.xml") e associa-os a variáveis.
-        // Isto permite manipular esses elementos, como obter o texto digitado pelo utilizar
+        // Isto permite manipular esses elementos, como obter o texto digitado pelo utilizador
         // ou definir ações quando o botão for clicado.
         val jogador1: EditText = findViewById(R.id.jogador1nome)
         val jogador2: EditText = findViewById(R.id.jogador2nome)
@@ -26,7 +26,7 @@ class AdicionarJogadores : AppCompatActivity() {
 
 
         //O OnClickListener é configurado para o botão comecarJogoBtn. Isso significa que, quando o utilizador
-        // clicar no botão, o código dentro dog bloco de código do setOnClickListener será executado.
+        // clicar no botão, o código dentro do bloco de código do setOnClickListener será executado.
         comecarJogoBtn.setOnClickListener {
 
             //Os valores de texto dos campos de entrada jogador1 e jogador2 são "capturados"
