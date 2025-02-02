@@ -4,24 +4,50 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="@drawable/panodefundo">
+    android:background="@color/light_pink">
 
     <TextView
         android:id="@+id/txtGamesPlayed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Jogos Jogados: 0"
+        android:text="@string/jogos_jogados_0"
         android:textSize="20sp"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:layout_gravity="center"
-        android:padding="16dp"/>
+        android:padding="16dp"
+        android:textStyle="bold"
+        android:layout_marginTop="250dp"/>
 
-    <!--Botão somente necessário para realizar testes de funcionamento-->
-    <!--<Button
-        android:id="@+id/btnResetGames"
+    <TextView
+        android:id="@+id/txtPlayer1Wins"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Resetar Jogos"
-        android:layout_gravity="center"/> -->
+        android:text="@string/jogador_1_vit_rias_0"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:layout_gravity="center"
+        android:padding="8dp"/>
+
+    <TextView
+        android:id="@+id/txtPlayer2Wins"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/jogador_2_vit_rias_0"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:layout_gravity="center"
+        android:padding="8dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnResetGames"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:layout_marginEnd="80dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="20sp"
+        android:text="@string/reiniciar_estat_stica"
+        android:layout_gravity="center"
+        android:background="@drawable/greenbutton"/>
 
 </LinearLayout>
