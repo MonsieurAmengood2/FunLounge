@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/panodefundo">
+    android:background="@color/light_pink">
 
 
     <View
@@ -16,9 +16,9 @@
         android:id="@+id/BotBtn"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginStart="20dp"
-        android:text="Jogar Contra o Bot "
+        android:layout_marginEnd="30dp"
+        android:layout_marginStart="30dp"
+        android:text="@string/jogar_contra_o_bot"
         android:layout_marginTop="40dp"
         android:background="@drawable/greenbutton"/>
 
@@ -26,9 +26,9 @@
         android:id="@+id/AmigoBtn"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginStart="20dp"
-        android:text="Jogar Contra um Amigo"
+        android:layout_marginEnd="30dp"
+        android:layout_marginStart="30dp"
+        android:text="@string/jogar_contra_um_amigo"
         android:layout_marginTop="40dp"
         android:background="@drawable/greenbutton"/>
 

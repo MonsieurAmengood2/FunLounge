@@ -15,7 +15,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 //-->Fonte:https://medium.com/@ardasenbakkavaci/consuming-nodejs-backend-api-in-android-kotlin-3d93f43aa4ac
 object RetrofitClient {
 
-    // URL do backend que está hospedado no Railway.
     //A app usa este URL para se conectar à API e buscar/enviar dados.
     // Railway faz o deploy automaticamente do codigo que está hospedado no Github sempre que for feito um push.
     private const val BASE_URL = "https://web-production-43f0a.up.railway.app/"

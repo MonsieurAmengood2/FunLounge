@@ -37,4 +37,12 @@
     <string name="mensagem_aqui">mensagem aqui</string>
     <string name="come_ar_novamente">Começar Novamente</string>
     <string name="voltar_ao_menu_principal">Voltar ao menu principal</string>
+    <string name="eliminar_perfil">Eliminar perfil</string>
+    <string name="jogar_contra_o_bot">Jogar Contra o Bot</string>
+    <string name="jogar_contra_um_amigo">Jogar Contra um Amigo</string>
+    <string name="escolha_o_seu_nome_e_s_mbolo">Escolha o seu nome e símbolo</string>
+    <string name="digite_o_seu_nome">Digite o seu nome</string>
+    <string name="escolha_o_seu_s_mbolo">Escolha o seu símbolo:</string>
+    <string name="iniciar_jogo">Iniciar Jogo</string>
+    <string name="defini_es_de_utilizador">Definições de Utilizador</string>
 </resources>

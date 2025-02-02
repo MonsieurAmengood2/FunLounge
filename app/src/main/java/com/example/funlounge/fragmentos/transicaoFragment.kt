@@ -10,6 +10,7 @@ import android.content.Intent
 import android.widget.Button
 import android.widget.TextView
 import com.example.funlounge.AdicionarJogadores
+import com.example.funlounge.MenuDecisaoJogo
 import com.example.funlounge.MenuDefinicoes
 import com.example.funlounge.StatsActivity
 
@@ -38,7 +39,7 @@ class MenuTransicaoFragment : Fragment() {
         val definBtn: Button = view.findViewById(R.id.DefinBtn)
 
         jogarBtn.setOnClickListener {
-            val intent = Intent(requireActivity(), AdicionarJogadores::class.java)
+            val intent = Intent(requireActivity(), MenuDecisaoJogo::class.java)
             startActivity(intent)
         }
 

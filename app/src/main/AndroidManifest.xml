@@ -48,6 +48,15 @@
         <activity
             android:name=".MainActivityJogo"
             android:exported="true"></activity>
+
+        <activity
+            android:name=".MenuDecisaoJogo"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".ChooseSymbolActivity"
+            android:exported="true">
+        </activity>
     </application>
 
 </manifest>

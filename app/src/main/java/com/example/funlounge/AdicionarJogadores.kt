@@ -46,7 +46,6 @@ class AdicionarJogadores : AppCompatActivity() {
             // no Intent. Isso permite que a MainActivity receba os nomes dos jogadores e os utilize.
             } else {
                 savePlayerNames(getPlayerOneName, getPlayerTwoName) // Save names
-                resetPlayerStats()
 
                 val intent = Intent(this, MainActivityJogo::class.java).apply {
                     putExtra("jogador1", getPlayerOneName)
@@ -59,16 +58,6 @@ class AdicionarJogadores : AppCompatActivity() {
             }
         }
 
-    }
-
-    private fun resetPlayerStats() {
-        val prefs = getSharedPreferences("TicTacToePrefs", Context.MODE_PRIVATE)
-        val editor = prefs.edit()
-
-        editor.putInt("player1_wins", 0)
-        editor.putInt("player2_wins", 0)
-        editor.putInt("games_played", 0)
-        editor.apply()
     }
 
     private fun savePlayerNames(player1: String, player2: String) {
