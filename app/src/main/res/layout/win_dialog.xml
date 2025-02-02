@@ -2,12 +2,13 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center">
+    android:gravity="center"
+    android:background="@color/light_pink">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/dark_green"
+        android:background="@drawable/darkback"
         android:orientation="vertical"
         android:padding="16dp"
         android:gravity="center_horizontal"
@@ -19,9 +20,9 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:layout_marginTop="10dp"
-            android:text="mensagem aqui"
-            android:textColor="#FFFFFF"
-            android:textSize="16dp"
+            android:text="@string/mensagem_aqui"
+            android:textColor="@color/white"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <androidx.appcompat.widget.AppCompatButton
@@ -31,8 +32,8 @@
             android:layout_marginTop="10dp"
             android:padding="10dp"
             android:background="@drawable/greenbutton"
-            android:text="Começar Novamente"
-            android:textColor="#FFFFFF" />
+            android:text="@string/come_ar_novamente"
+            android:textColor="@color/white" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/retrocederBtn"
@@ -41,8 +42,8 @@
             android:layout_marginTop="10dp"
             android:padding="10dp"
             android:background="@drawable/greenbutton"
-            android:text="Voltar ao menu principal"
-            android:textColor="#FFFFFF" />
+            android:text="@string/voltar_ao_menu_principal"
+            android:textColor="@color/white" />
 
     </LinearLayout>
 </RelativeLayout>

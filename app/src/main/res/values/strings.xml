@@ -29,4 +29,12 @@
     <string name="reiniciar_estat_stica">Reiniciar Estatística</string>
     <string name="jogador_1_vit_rias_0">Jogador 1 - Vitórias: 0</string>
     <string name="jogador_2_vit_rias_0">Jogador 2 - Vitórias: 0</string>
+    <string name="iconjogador1">iconJogador1</string>
+    <string name="iconjogador2">iconJogador2</string>
+    <string name="areajogo">areaJogo</string>
+    <string name="editar_perfil">Editar Perfil</string>
+    <string name="sair">Sair</string>
+    <string name="mensagem_aqui">mensagem aqui</string>
+    <string name="come_ar_novamente">Começar Novamente</string>
+    <string name="voltar_ao_menu_principal">Voltar ao menu principal</string>
 </resources>

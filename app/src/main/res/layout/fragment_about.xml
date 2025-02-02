@@ -6,13 +6,13 @@
     android:orientation="vertical"
     tools:context=".fragmentos.AboutFragment"
     android:padding="16sp"
-    android:background="@color/light_pink">
+    android:background="@color/light_pink"
+    android:gravity="center">
 
     <TextView
         android:id="@+id/textView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50sp"
         android:text="@string/acerca_da_app_funlounge"
         android:gravity="center"
         android:textStyle="bold"
