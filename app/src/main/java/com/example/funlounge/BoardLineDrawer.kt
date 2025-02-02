@@ -38,7 +38,7 @@ class BoardLineDrawer(context: Context, attrs: AttributeSet? = null) : View(cont
         // indica se a linha deve ser desenhada ou não.
         isWinningLineDrawn = true
 
-        //nvalidate() pede ao sistema para redesenhar a interface gráfica,
+        //invalidate() pede ao sistema para redesenhar a interface gráfica,
         // acionando automaticamente o método onDraw()
         //Quando chamamos invalidate(), a View é marcada como "inválida" e o Android sabe que precisa ser
         // redesenhada. Isso resulta na execução do método onDraw() na próxima atualização da interface do utilizador
