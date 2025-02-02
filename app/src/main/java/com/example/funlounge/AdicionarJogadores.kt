@@ -1,5 +1,6 @@
 package com.example.funlounge
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -44,6 +45,9 @@ class AdicionarJogadores : AppCompatActivity() {
             // Os nomes dos jogadores são passados para a MainActivity através de putExtra(), que insere os dados
             // no Intent. Isso permite que a MainActivity receba os nomes dos jogadores e os utilize.
             } else {
+                savePlayerNames(getPlayerOneName, getPlayerTwoName) // Save names
+                resetPlayerStats()
+
                 val intent = Intent(this, MainActivityJogo::class.java).apply {
                     putExtra("jogador1", getPlayerOneName)
                     putExtra("jogador2", getPlayerTwoName)
@@ -54,5 +58,24 @@ class AdicionarJogadores : AppCompatActivity() {
                 finish()
             }
         }
+
+    }
+
+    private fun resetPlayerStats() {
+        val prefs = getSharedPreferences("TicTacToePrefs", Context.MODE_PRIVATE)
+        val editor = prefs.edit()
+
+        editor.putInt("player1_wins", 0)
+        editor.putInt("player2_wins", 0)
+        editor.putInt("games_played", 0)
+        editor.apply()
+    }
+
+    private fun savePlayerNames(player1: String, player2: String) {
+        val prefs = getSharedPreferences("TicTacToePrefs", Context.MODE_PRIVATE)
+        val editor = prefs.edit()
+        editor.putString("player1_name", player1)
+        editor.putString("player2_name", player2)
+        editor.apply()
     }
 }

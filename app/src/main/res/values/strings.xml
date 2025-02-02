@@ -27,4 +27,6 @@
     <string name="logo_jogador2">logo jogador2</string>
     <string name="jogos_jogados_0">Jogos Jogados: 0</string>
     <string name="reiniciar_estat_stica">Reiniciar Estatística</string>
+    <string name="jogador_1_vit_rias_0">Jogador 1 - Vitórias: 0</string>
+    <string name="jogador_2_vit_rias_0">Jogador 2 - Vitórias: 0</string>
 </resources>

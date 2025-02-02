@@ -474,11 +474,27 @@ class MainActivityJogo : AppCompatActivity() {
             {
                 drawWinningLine(combination)
                 response = true
+                updateWinCount(playerTurn)
 
             }
         }
         //Se todas as três casas estiverem ocupadas pelo mesmo jogador, a função retorna true (indicando vitória).
         return response
+    }
+
+    private fun updateWinCount(winner: Int) {
+        val prefs = getSharedPreferences("TicTacToePrefs", Context.MODE_PRIVATE)
+        val editor = prefs.edit()
+
+        if (winner == 1) {
+            val newCount = prefs.getInt("player1_wins", 0) + 1
+            editor.putInt("player1_wins", newCount)
+        } else if (winner == 2) {
+            val newCount = prefs.getInt("player2_wins", 0) + 1
+            editor.putInt("player2_wins", newCount)
+        }
+
+        editor.apply()
     }
 
     //Este método verifica se a casa selecionada pelo jogador está disponível para ser marcada

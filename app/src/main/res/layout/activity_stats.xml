@@ -18,6 +18,26 @@
         android:textStyle="bold"
         android:layout_marginTop="250dp"/>
 
+    <TextView
+        android:id="@+id/txtPlayer1Wins"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/jogador_1_vit_rias_0"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:layout_gravity="center"
+        android:padding="8dp"/>
+
+    <TextView
+        android:id="@+id/txtPlayer2Wins"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/jogador_2_vit_rias_0"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:layout_gravity="center"
+        android:padding="8dp"/>
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnResetGames"
         android:layout_width="match_parent"
@@ -25,6 +45,7 @@
         android:textStyle="bold"
         android:layout_marginEnd="80dp"
         android:layout_marginStart="80dp"
+        android:layout_marginTop="20sp"
         android:text="@string/reiniciar_estat_stica"
         android:layout_gravity="center"
         android:background="@drawable/greenbutton"/>
